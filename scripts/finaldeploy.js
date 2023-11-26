@@ -2,7 +2,7 @@ const hre = require('hardhat');
 
 async function main() {
   const chai = await hre.ethers.getContractFactory('chai');
-  const contract = await chai.deploy(); //INSTANCE OF CONTRACT
+  const contract = await chai.deploy();
   await contract.waitForDeployment();
 
   console.log('Address ', contract.target);

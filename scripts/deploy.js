@@ -27,7 +27,7 @@ async function consolememos(memos) {
 async function main() {
   const [owner, from1, from2, from3] = await hre.ethers.getSigners();
   const chai = await hre.ethers.getContractFactory('chai');
-  const contract = await chai.deploy(); //INSTANCE OF CONTRACT
+  const contract = await chai.deploy();
   await contract.waitForDeployment();
 
   console.log('Address ', contract.target);
@@ -38,17 +38,19 @@ async function main() {
     from2.address,
     from3.address,
   ];
-  console.log('Before Buying Chai');
+  console.log('Before Buying Coffee');
   await consolebalances(addresses);
 
   const amount = { value: hre.ethers.parseEther('1') };
-  await contract.connect(from1).buychai('from1', 'Very Nice Chai', amount);
-  await contract.connect(from2).buychai('from1', 'Very Nice Course', amount);
+  await contract.connect(from1).buychai('from1', 'Very Nice Coffee', amount);
+  await contract
+    .connect(from2)
+    .buychai('from1', 'Very Nice Coffee from user 2', amount);
   await contract
     .connect(from3)
     .buychai('from1', 'Very Nice Information', amount);
 
-  console.log('After Buying Chai');
+  console.log('After Buying Coffee');
   await consolebalances(addresses);
 
   const memos = await contract.getmemos();
