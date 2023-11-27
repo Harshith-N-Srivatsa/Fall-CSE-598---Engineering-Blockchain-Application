@@ -1,10 +1,16 @@
 Fall 2023 - CSE 598: Engineering Blockchain Application
 
+
 Team members: 
+
   Harshith Narasimhan Srivatsa
+  
   Rahul R Nayak
+
   Varsha Sangama Murthy
+
   Vishesh Tayal
+
 
 Instruction for executing the project:
 
